@@ -17,8 +17,8 @@ agosto=spark.read.text("access_log_Aug95.log")
 agosto_limpo= agosto.select(regexp_extract('value',r'^([^\s]+\s)',1).alias('hosts'),
                             regexp_extract('value', r'((\d\d/\w{3}/\d{4}:\d{2}:\d{2}:\d{2}))', 1).alias('data'),
                             regexp_extract('value', r'^.*"\w+\s+([^\s+]+)\s+HTTP.*', 1).alias('URL'),
-regexp_extract('value', r'^.*\s+([^\s]+)\s', 1).cast('integer').alias('codigo_HTTP'),
-regexp_extract('value', r'^.*\s+([^\s]+)', 1).cast('integer').alias('byte'))
+                            regexp_extract('value', r'^.*\s+([^\s]+)\s', 1).cast('integer').alias('codigo_HTTP'),
+                            regexp_extract('value', r'^.*\s+([^\s]+)', 1).cast('integer').alias('byte'))
 
 
 #count de hosts
@@ -42,8 +42,8 @@ julho=spark.read.text("access_log_Jul95.log")
 julho_limpo= julho.select(regexp_extract('value',r'^([^\s]+\s)',1).alias('hosts'),
                             regexp_extract('value', r'((\d\d/\w{3}/\d{4}:\d{2}:\d{2}:\d{2}))', 1).alias('data'),
                             regexp_extract('value', r'^.*"\w+\s+([^\s+]+)\s+HTTP.*', 1).alias('URL'),
-regexp_extract('value', r'^.*\s+([^\s]+)\s', 1).cast('integer').alias('codigo_HTTP'),
-regexp_extract('value', r'^.*\s+([^\s]+)', 1).cast('integer').alias('byte'))
+                            regexp_extract('value', r'^.*\s+([^\s]+)\s', 1).cast('integer').alias('codigo_HTTP'),
+                            regexp_extract('value', r'^.*\s+([^\s]+)', 1).cast('integer').alias('byte'))
 
 
 #count de hosts
